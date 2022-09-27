@@ -4,8 +4,9 @@ import { Container, Top,Bottom } from "./styles";
 import {FiSearch} from 'react-icons/fi'
 
 import logoImg from '../../assets/logo-sem-fundo.ico'
+import { Filter } from "../Filter";
 
-export function Header(){
+export function Header({data}){
   return (
     <Container>
       <Top>
@@ -17,7 +18,9 @@ export function Header(){
         />
       </Top>
       <Bottom>
-
+        {
+          data.filters.map(filter => <Filter icon={filter.icon} title={filter.title} />)
+        }
       </Bottom>
     </Container>
   )

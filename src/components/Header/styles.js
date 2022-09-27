@@ -20,4 +20,11 @@ export const Top = styled.div`
   justify-content: space-around;
   width: 50%;
   gap: 20px;
+
+  margin: 10px;
+
+  > img {
+    width: 50px;
+    height: 50px;
+  }
 `;

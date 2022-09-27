@@ -28,3 +28,14 @@ export const Top = styled.div`
     height: 50px;
   }
 `;
+
+export const Bottom = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+
+  gap: 2rem;
+  width: 100%;
+
+  list-style: none;
+`;

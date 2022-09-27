@@ -1,5 +1,5 @@
 import { Input } from "../Input";
-import { Container, Top } from "./styles";
+import { Container, Top,Bottom } from "./styles";
 
 import {FiSearch} from 'react-icons/fi'
 
@@ -16,6 +16,9 @@ export function Header(){
           icon={FiSearch}
         />
       </Top>
+      <Bottom>
+
+      </Bottom>
     </Container>
   )
 }

@@ -9,11 +9,10 @@ export const Container = styled.header`
   justify-content: space-between;
   align-items: center;
 
-  border-bottom: 1px solid red;
-
-  padding: 0 30px;
 
   grid-area: header;
+
+  background-color: ${({theme}) => theme.COLORS.WHITE};
 `;
 
 export const Top = styled.div`
@@ -24,6 +23,7 @@ export const Top = styled.div`
   gap: 20px;
 
   margin: 10px;
+
 
   > img {
     width: 50px;
@@ -40,4 +40,6 @@ export const Bottom = styled.div`
   width: 100%;
 
   list-style: none;
+
+
 `;

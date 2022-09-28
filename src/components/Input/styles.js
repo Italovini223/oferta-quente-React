@@ -11,12 +11,14 @@ export const Container = styled.div`
 
   padding: 0 10px;
 
+
+
   > input {
     width: 100%;
     height: 50px;
 
     border: none;
-    background-color: none;
+    background-color: transparent;
 
     color: red;
 
@@ -33,5 +35,6 @@ export const Container = styled.div`
   > svg {
     color: red;
     font-size: 24px;
+    background-color: transparent;
   }
 `;

@@ -6,4 +6,14 @@ export const Container = styled.div`
   gap: 5px;
 
   align-items: center;
+
+
+
+  > span {
+    background-color: transparent;
+  }
+
+  > svg {
+    background: transparent;
+  }
 `;

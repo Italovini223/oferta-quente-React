@@ -20,4 +20,8 @@ export const Content = styled.div`
   overflow-y: auto;
 
   background-color: ${({theme}) => theme.COLORS.BACKGROUND_900};
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr 1fr;
 `;

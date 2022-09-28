@@ -19,7 +19,7 @@ export function Header({data}){
       </Top>
       <Bottom>
         {
-          data.filters.map(filter => <Filter icon={filter.icon} title={filter.title} />)
+          data.filters.map(filter => <Filter icon={filter.icon} title={filter.title} key={filter.id} />)
         }
       </Bottom>
     </Container>

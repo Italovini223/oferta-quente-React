@@ -1,4 +1,4 @@
-import { Container } from "./styles";
+import { Container, Content } from "./styles";
 
 import {AiOutlineHome, GrPersonalComputer, GiHanger, GiHealthPotion} from 'react-icons/all'
 
@@ -17,6 +17,8 @@ export function Home() {
           ]
         }}
       />
+      <Content>
+      </Content>
     </Container>
   )
 }

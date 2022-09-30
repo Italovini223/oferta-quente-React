@@ -13,7 +13,7 @@ export function Header({data}){
         <img src={logoImg} alt="" />
         <Input 
           type="text"
-          placeholder="Digite Sua busca"
+          placeholder="Digite Sua Busca"
           icon={FiSearch}
         />
       </Top>

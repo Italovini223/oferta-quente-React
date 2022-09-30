@@ -63,5 +63,6 @@ export const Utils = styled.div`
   > a {
     text-decoration: none;
     color: black;
+    font-weight: 500;
   } 
 `;

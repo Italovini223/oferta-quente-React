@@ -9,6 +9,8 @@ export const Container = styled.header`
   justify-content: space-between;
   align-items: center;
 
+  padding: 20px 0;
+
 
   grid-area: header;
 
@@ -22,7 +24,7 @@ export const Top = styled.div`
   width: 50%;
   gap: 20px;
 
-  margin: 10px;
+  margin: 5px;
 
 
   > img {

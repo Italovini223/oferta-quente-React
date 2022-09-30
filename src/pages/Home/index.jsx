@@ -1,4 +1,4 @@
-import { Container, Content } from "./styles";
+import { Banner, Container, Content } from "./styles";
 
 import {AiOutlineHome, GrPersonalComputer, GiHanger, GiHealthPotion} from 'react-icons/all';
 
@@ -7,6 +7,7 @@ import {Product} from '../../components/Product';
 
 
 import {PRODUCTS} from '../../utils/products';
+import bannerImg from '../../assets/Carrossel Infinito Oferta Quente (1).png'
 
 export function Home() {
   return(
@@ -21,15 +22,17 @@ export function Home() {
           ]
         }}
       />
+      <Banner >
+        <img src={bannerImg} alt="" />
+      </Banner>
       <Content>
-        
         {
           PRODUCTS.map(product => {
             return (
               <Product 
                 image={product.image}
                 description={product.description}
-                price={product.price}
+                price={`R$ ${product.price}`}
                 link={product.link}
                 key={product.id}
               />

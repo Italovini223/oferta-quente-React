@@ -5,7 +5,7 @@ export const Container = styled.div`
   min-height: 250px;
 
   margin: 3px;
-  padding: 20px 10px;
+  padding: 10px 10px 0;
 
   display: flex;
   flex-direction: column;
@@ -22,7 +22,7 @@ export const Description = styled.div`
   padding: 0 20px;
   margin-bottom: 40px;
 
-  font-size: clamp(12px, 13px, 15px);
+  font-size: clamp(16px, 18px, 20px);
   font-weight: 700;
 
   > img {
@@ -35,15 +35,33 @@ export const Information = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  margin: 0 10px;
+
+  > span {
+    color: green;
+    font-weight: 700;
+    font-size: clamp(20px, 22px, 24px);
+  }
 `;
 
 export const Line = styled.div`
   width: 100%;
   border: 1px solid red;
+  background-color: red;
 `;
 
 export const Utils = styled.div`
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+
   width: 100%;
+  height: 100%;
+ 
+
+  > a {
+    text-decoration: none;
+    color: black;
+  } 
 `;

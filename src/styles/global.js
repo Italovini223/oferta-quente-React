@@ -10,4 +10,8 @@ export default createGlobalStyle`
   body {
     font-family: 'Mukta', sans-serif;
   }
+
+  a:hover {
+    opacity: 0.5;
+  }
 `;

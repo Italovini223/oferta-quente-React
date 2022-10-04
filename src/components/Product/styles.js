@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  max-width: 900px;
-  min-height: 250px;
+  max-width: 500px;
+  min-height: 300px;
 
-  margin: 3px;
+  margin: 8px;
   padding: 10px 10px 0;
 
   display: flex;

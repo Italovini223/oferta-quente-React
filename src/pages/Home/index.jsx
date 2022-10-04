@@ -1,4 +1,4 @@
-import { Banner, Container, Content } from "./styles";
+import { Banner, Container, Content, Products } from "./styles";
 
 import {AiOutlineHome, GrPersonalComputer, GiHanger, GiHealthPotion} from 'react-icons/all';
 
@@ -22,10 +22,11 @@ export function Home() {
           ]
         }}
       />
-      <Banner >
-        <img src={bannerImg} alt="" />
-      </Banner>
       <Content>
+        <Banner >
+          <img src={bannerImg} alt="" />
+        </Banner>
+        <Products>
         {
           PRODUCTS.map(product => {
             return (
@@ -39,6 +40,7 @@ export function Home() {
             )
           })
         }
+        </Products>
       </Content>
     </Container>
   )

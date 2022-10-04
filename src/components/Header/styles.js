@@ -39,9 +39,12 @@ export const Bottom = styled.div`
   justify-content: center;
 
   gap: 2rem;
-  width: 100%;
+  width: 50%;
 
   list-style: none;
 
+  @media (max-width: 768px) {
+    display: none;
+  }
 
 `;

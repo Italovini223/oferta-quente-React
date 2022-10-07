@@ -23,11 +23,13 @@ export function Home() {
 
   useEffect(() => {
     axios.post(`https://ofertaquente.com.br/api/listaOfertaRecentes?page=${page}`)
-    .then((response) => setProducts(response.data) )
+    .then((response) => setProducts([...products, ...response.data]) )
     .catch(() => {
 
     })
   }, [page]);
+
+  console.log(products)
 
   return(
     <Container>
@@ -58,7 +60,6 @@ export function Home() {
                 usrName={product.nameUsuario}
                 link={product.link}
                 key={product.id}
-
               />
             )
           })
@@ -66,7 +67,7 @@ export function Home() {
         </Products>
         <Navigation>
           <Button 
-            title="Proxima página"
+            title="Ver mais ofertas"
             onClick={function handlePage() {
               var NumberPage = Number(page);
               NumberPage++;
@@ -74,16 +75,7 @@ export function Home() {
               setPage(newNumberPage);
             }}
           />
-          <Button 
-            title="Página anterior"
-            previous
-            onClick={function handlePageBack(){
-              var NumberPage = Number(page);
-              NumberPage--;
-              const newNumberPage = String(NumberPage);
-              setPage(newNumberPage);
-            }}
-          />
+        
         </Navigation>
       </Content>
     </Container>

@@ -69,13 +69,8 @@ export function Home() {
             title="Proxima página"
             onClick={function handlePage() {
               var NumberPage = Number(page);
-    
-              var NumberPage = Number(page);
-    
               NumberPage++;
-            
               const newNumberPage = String(NumberPage);
-            
               setPage(newNumberPage);
             }}
           />
@@ -84,13 +79,8 @@ export function Home() {
             previous
             onClick={function handlePageBack(){
               var NumberPage = Number(page);
-    
-              var NumberPage = Number(page);
-    
               NumberPage--;
-            
               const newNumberPage = String(NumberPage);
-            
               setPage(newNumberPage);
             }}
           />

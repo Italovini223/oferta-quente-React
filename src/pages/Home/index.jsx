@@ -53,8 +53,12 @@ export function Home() {
                 image={`https://ofertaquente.com.br/${product.imagem}`}
                 description={product.nome}
                 price={`R$ ${product.preco}`}
+                storeLogo={`https://ofertaquente.com.br/${product.imagemLoja}`}
+                userImage={`https://ofertaquente.com.br/${product.imagemUsuario}`}
+                usrName={product.nameUsuario}
                 link={product.link}
                 key={product.id}
+
               />
             )
           })

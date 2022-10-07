@@ -43,6 +43,11 @@ export const Information = styled.div`
     font-weight: 700;
     font-size: clamp(20px, 22px, 24px);
   }
+
+  > img {
+    width: 60px;
+
+  }
 `;
 
 export const Line = styled.div`
@@ -53,7 +58,7 @@ export const Line = styled.div`
 
 export const Utils = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
 
   width: 100%;
@@ -65,4 +70,18 @@ export const Utils = styled.div`
     color: black;
     font-weight: 500;
   } 
+`;
+
+export const UserInfo= styled.div`
+ 
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  > img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
 `;

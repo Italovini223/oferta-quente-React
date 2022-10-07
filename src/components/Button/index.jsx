@@ -3,7 +3,7 @@ import { Container } from "./styles";
 export function Button({title, previous = false, ...rest}){
   return(
     <Container
-      type="submit"
+      type="button"
       previous={previous}
       {...rest}
     >

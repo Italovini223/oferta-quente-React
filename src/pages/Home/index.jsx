@@ -8,23 +8,28 @@ import {AiOutlineHome, GrPersonalComputer, GiHanger, GiHealthPotion} from 'react
 
 import {Header} from '../../components/Header';
 import {Product} from '../../components/Product';
+import { Button } from '../../components/Button';
 
-
-import {PRODUCTS} from '../../utils/products';
 import bannerImg from '../../assets/Carrossel Infinito Oferta Quente (1).png'
+
 
 
 export function Home() {
 
+
   const [products, setProducts] = useState([]);
+  const [page, setPage] = useState("1");
+
 
   useEffect(() => {
-    axios.post("https://ofertaquente.com.br/api/listaTodasOfertas")
+    axios.post(`https://ofertaquente.com.br/api/listaOfertaRecentes?page=${page}`)
     .then((response) => setProducts(response.data) )
     .catch(() => {
 
     })
-  }, [])
+  }, [page]);
+
+  console.log(page)
 
   return(
     <Container>
@@ -57,6 +62,20 @@ export function Home() {
           })
         }
         </Products>
+        <Button 
+          title="Proxima página"
+          onClick={function handlePage() {
+            var NumberPage = Number(page);
+  
+            var NumberPage = Number(page);
+  
+            NumberPage++;
+          
+            const newNumberPage = String(NumberPage);
+          
+            setPage(newNumberPage);
+          }}
+        />
       </Content>
     </Container>
   )

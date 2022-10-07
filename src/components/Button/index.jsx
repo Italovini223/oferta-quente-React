@@ -1,10 +1,11 @@
 import { Container } from "./styles";
 
-export function Button({title, ...rest}){
+export function Button({title, previous = false, ...rest}){
   return(
     <Container
-    type="submit"
-    {...rest}
+      type="submit"
+      previous={previous}
+      {...rest}
     >
       <span>{title}</span>
     </Container>

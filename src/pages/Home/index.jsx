@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import {useState, useEffect} from 'react';
 
-import { Banner, Container, Content, Products } from "./styles";
+import { Banner, Container, Content, Navigation, Products } from "./styles";
 
 import {AiOutlineHome, GrPersonalComputer, GiHanger, GiHealthPotion} from 'react-icons/all';
 
@@ -28,8 +28,6 @@ export function Home() {
 
     })
   }, [page]);
-
-  console.log(page)
 
   return(
     <Container>
@@ -62,20 +60,37 @@ export function Home() {
           })
         }
         </Products>
-        <Button 
-          title="Proxima página"
-          onClick={function handlePage() {
-            var NumberPage = Number(page);
-  
-            var NumberPage = Number(page);
-  
-            NumberPage++;
-          
-            const newNumberPage = String(NumberPage);
-          
-            setPage(newNumberPage);
-          }}
-        />
+        <Navigation>
+          <Button 
+            title="Proxima página"
+            onClick={function handlePage() {
+              var NumberPage = Number(page);
+    
+              var NumberPage = Number(page);
+    
+              NumberPage++;
+            
+              const newNumberPage = String(NumberPage);
+            
+              setPage(newNumberPage);
+            }}
+          />
+          <Button 
+            title="Página anterior"
+            previous
+            onClick={function handlePageBack(){
+              var NumberPage = Number(page);
+    
+              var NumberPage = Number(page);
+    
+              NumberPage--;
+            
+              const newNumberPage = String(NumberPage);
+            
+              setPage(newNumberPage);
+            }}
+          />
+        </Navigation>
       </Content>
     </Container>
   )

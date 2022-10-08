@@ -86,11 +86,3 @@ export const Products = styled.div`
   }
 `;
 
-export const Navigation = styled.div`
-  width: 100%;
-
-  display: flex;
-  justify-content: space-between;
-
-  gap: 20px;
-`;

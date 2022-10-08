@@ -2,13 +2,12 @@ import axios from 'axios';
 
 import {useState, useEffect} from 'react';
 
-import { Banner, Container, Content, Navigation, Products } from "./styles";
+import { Banner, Container, Content, Products } from "./styles";
 
 import {AiOutlineHome, GrPersonalComputer, GiHanger, GiHealthPotion} from 'react-icons/all';
 
 import {Header} from '../../components/Header';
 import {Product} from '../../components/Product';
-import { Button } from '../../components/Button';
 
 import bannerImg from '../../assets/Carrossel Infinito Oferta Quente (1).png'
 

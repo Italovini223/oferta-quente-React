@@ -18,7 +18,7 @@ export function Home() {
 
 
   const [products, setProducts] = useState([]);
-  const [page, setPage] = useState("1");
+  const [page, setPage] = useState(1);
 
 
   useEffect(() => {
@@ -29,7 +29,17 @@ export function Home() {
     })
   }, [page]);
 
-  console.log(products)
+  useEffect(() => {
+    const intersectionObserver = new IntersectionObserver((entries) => {
+      if(entries.some((entry) => entry.isIntersecting)) {
+        console.log("ok");
+        setPage((pageInsideState) => pageInsideState + 1)
+      }
+    });
+    intersectionObserver.observe(document.querySelector('#endScroll'));
+
+    return () => intersectionObserver.disconnect();
+  },[])
 
   return(
     <Container>
@@ -65,18 +75,7 @@ export function Home() {
           })
         }
         </Products>
-        <Navigation>
-          <Button 
-            title="Ver mais ofertas"
-            onClick={function handlePage() {
-              var NumberPage = Number(page);
-              NumberPage++;
-              const newNumberPage = String(NumberPage);
-              setPage(newNumberPage);
-            }}
-          />
-        
-        </Navigation>
+        <div id='endScroll'  />
       </Content>
     </Container>
   )

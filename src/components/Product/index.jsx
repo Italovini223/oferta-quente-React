@@ -1,4 +1,4 @@
-import { Container, Description, Information, Utils, Line, UserInfo } from "./styles";
+import { Container, Description, Information, Utils, Line, UserInfo, ButtonLink } from "./styles";
 
 export function Product({image, description, price, link, storeLogo, userImage, usrName, ...rest}){
   return (
@@ -20,9 +20,9 @@ export function Product({image, description, price, link, storeLogo, userImage, 
           <img src={userImage} alt="" />
           <span>{usrName}</span>
         </UserInfo>
-        <a href={link}>
-          Compre Agora
-        </a>
+        <ButtonLink href={link} Target="_blank">
+          <span>Compre Agora</span>
+        </ButtonLink>
       </Utils>
     </Container>
   )

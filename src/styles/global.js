@@ -11,7 +11,7 @@ export default createGlobalStyle`
     font-family: 'Mukta', sans-serif;
   }
 
-  a:hover {
+  a:hover, button:hover {
     opacity: 0.5;
   }
 `;

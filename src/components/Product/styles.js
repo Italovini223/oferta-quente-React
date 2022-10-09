@@ -63,13 +63,25 @@ export const Utils = styled.div`
 
   width: 100%;
   height: 100%;
+
+  padding: 0 8px;
  
 
-  > a {
-    text-decoration: none;
-    color: black;
-    font-weight: 500;
-  } 
+ 
+`;
+
+export const ButtonLink = styled.a`
+  background: none;
+  text-decoration: none;
+
+  padding: 4px;
+  border: 1px solid black;
+  border-radius: 10px;
+
+  color: black;
+  font-weight: 800;
+  
+  cursor: pointer;
 `;
 
 export const UserInfo= styled.div`

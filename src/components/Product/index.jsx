@@ -20,7 +20,7 @@ export function Product({image, description, price, link, storeLogo, userImage, 
           <img src={userImage} alt="" />
           <span>{usrName}</span>
         </UserInfo>
-        <ButtonLink href={link} Target="_blank">
+        <ButtonLink href={link} target="_blank">
           <span>Compre Agora</span>
         </ButtonLink>
       </Utils>

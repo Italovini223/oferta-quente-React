@@ -17,7 +17,7 @@ export function Home() {
 
 
   const [products, setProducts] = useState([]);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
 
 
   useEffect(() => {

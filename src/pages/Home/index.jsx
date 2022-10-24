@@ -2,14 +2,16 @@ import axios from 'axios';
 
 import {useState, useEffect} from 'react';
 
-import { Banner, Container, Content, Products } from "./styles";
+import { Banner, Container, Content, Products,} from "./styles";
 
-import {AiOutlineHome, GrPersonalComputer, GiHanger, GiHealthPotion} from 'react-icons/all';
 
-import {Header} from '../../components/Header';
+
 import {Product} from '../../components/Product';
+import {Header} from '../../components/Header'
+
 
 import bannerImg from '../../assets/Carrossel Infinito Oferta Quente (1).png'
+import logoImg from '../../assets/logo-sem-fundo.ico'
 
 
 
@@ -19,14 +21,18 @@ export function Home() {
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(0);
 
+  const [search, setSearch] = useState("");
+
 
   useEffect(() => {
-    axios.post(`https://ofertaquente.com.br/api/listaOfertaRecentes?page=${page}`)
+    axios.post(`https://ofertaquente.com.br/api/listaOfertaRecentes?page=${page}`, {
+      pesquisa: search
+    })
     .then((response) => setProducts([...products, ...response.data]) )
     .catch(() => {
 
     })
-  }, [page]);
+  }, [page, search]);
 
   useEffect(() => {
     const intersectionObserver = new IntersectionObserver((entries) => {
@@ -40,18 +46,11 @@ export function Home() {
     return () => intersectionObserver.disconnect();
   },[])
 
+
+
   return(
     <Container>
-      <Header 
-        data ={{
-          filters: [
-            {icon : AiOutlineHome, title: 'Casa',id: 1 },
-            {icon : GrPersonalComputer, title: 'Informática', id: 2 },
-            {icon: GiHanger, title: 'Vestuário', id: 3},
-            {icon: GiHealthPotion, title: 'Saúde e Beleza', id: 4}
-          ]
-        }}
-      />
+      <Header onChange={e => setSearch(e.target.value)}/>
       <Content>
         <Banner >
           <img src={bannerImg} alt="" />

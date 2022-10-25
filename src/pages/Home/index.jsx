@@ -11,7 +11,8 @@ import {Header} from '../../components/Header'
 
 
 import bannerImg from '../../assets/Carrossel Infinito Oferta Quente (1).png'
-import logoImg from '../../assets/logo-sem-fundo.ico'
+import { Button } from '../../components/Button';
+
 
 
 
@@ -19,38 +20,41 @@ export function Home() {
 
 
   const [products, setProducts] = useState([]);
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(2);
 
   const [search, setSearch] = useState("");
 
+  function handleProducts(){
+    if(search){
+      setPage(1)
+    }
+    setPage(prevState => prevState + 1)
+
+    axios.post(`https://ofertaquente.com.br/api/listaOfertaRecentes?page=${page}`,{
+      pesquisa: search,
+    })
+    .then(response => setProducts([...products, ...response.data]));
+  }
 
   useEffect(() => {
-    axios.post(`https://ofertaquente.com.br/api/listaOfertaRecentes?page=${page}`, {
+    axios.post(`https://ofertaquente.com.br/api/listaOfertaRecentes`, {
       pesquisa: search
     })
-    .then((response) => setProducts([...products, ...response.data]) )
+    .then((response) => setProducts([...response.data]) )
     .catch(() => {
 
     })
-  }, [page, search]);
+  }, [search]);
 
-  useEffect(() => {
-    const intersectionObserver = new IntersectionObserver((entries) => {
-      if(entries.some((entry) => entry.isIntersecting)) {
-        console.log("ok");
-        setPage((pageInsideState) => pageInsideState + 1)
-      }
-    });
-    intersectionObserver.observe(document.querySelector('#endScroll'));
-
-    return () => intersectionObserver.disconnect();
-  },[])
-
+  console.log(products)
 
 
   return(
     <Container>
-      <Header onChange={e => setSearch(e.target.value)}/>
+     <Header 
+        onChange={e => setSearch(e.target.value)}  
+        value={search}
+     />
       <Content>
         <Banner >
           <img src={bannerImg} alt="" />
@@ -73,7 +77,10 @@ export function Home() {
           })
         }
         </Products>
-        <div id='endScroll'  />
+        <Button 
+          title="Ver Mais produtos"
+          onClick={handleProducts}
+        />
       </Content>
     </Container>
   )

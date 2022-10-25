@@ -29,6 +29,15 @@ export const Description = styled.div`
     object-fit: cover;
     height: 100px;
   }
+
+  p {
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-box-orient: vertical;
+  }
 `;
 
 export const Information = styled.div`

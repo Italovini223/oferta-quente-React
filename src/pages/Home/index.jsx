@@ -24,13 +24,13 @@ export function Home() {
 
   const [search, setSearch] = useState("");
 
-  function handleProducts(){
-    if(search){
-      setPage(1)
-    }
-    setPage(prevState => prevState + 1)
 
-    axios.post(`https://ofertaquente.com.br/api/listaOfertaRecentes?page=${page}`,{
+
+  async function handleProducts(){
+
+    setPage(prevState => prevState + 1);
+
+    await axios.post(`https://ofertaquente.com.br/api/listaOfertaRecentes?page=${page}`,{
       pesquisa: search,
     })
     .then(response => setProducts([...products, ...response.data]));

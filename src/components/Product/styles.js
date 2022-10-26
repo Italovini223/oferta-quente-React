@@ -28,6 +28,7 @@ export const Description = styled.div`
   > img {
     object-fit: cover;
     height: 100px;
+    max-width: 200px;
   }
 
   p {

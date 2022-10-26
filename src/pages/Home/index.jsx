@@ -20,7 +20,7 @@ export function Home() {
 
 
   const [products, setProducts] = useState([]);
-  const [page, setPage] = useState(2);
+  const [page, setPage] = useState(1);
 
   const [search, setSearch] = useState("");
 
@@ -28,13 +28,24 @@ export function Home() {
 
   async function handleProducts(){
 
-    setPage(prevState => prevState + 1);
-
     await axios.post(`https://ofertaquente.com.br/api/listaOfertaRecentes?page=${page}`,{
       pesquisa: search,
     })
     .then(response => setProducts([...products, ...response.data]));
   }
+
+  useEffect(() => {
+    const intersectionObserver = new IntersectionObserver((entries) => {
+      if(entries.some((entry) => entry.isIntersecting)) {
+        setPage(prevState => prevState + 1);
+        handleProducts();
+      }
+    });
+    intersectionObserver.observe(document.querySelector('#endScroll'));
+ 
+    return () => intersectionObserver.disconnect();
+  },[products])
+
 
   useEffect(() => {
     axios.post(`https://ofertaquente.com.br/api/listaOfertaRecentes`, {
@@ -46,7 +57,6 @@ export function Home() {
     })
   }, [search]);
 
-  console.log(products)
 
 
   return(
@@ -77,10 +87,7 @@ export function Home() {
           })
         }
         </Products>
-        <Button 
-          title="Ver Mais produtos"
-          onClick={handleProducts}
-        />
+        <div id='endScroll' />
       </Content>
     </Container>
   )

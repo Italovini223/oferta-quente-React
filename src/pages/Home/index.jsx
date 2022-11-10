@@ -65,13 +65,6 @@ export function Home() {
         />
 
         <Filter 
-          title="Comentadas"
-          icon={MdOutlineMessage}
-          onClick={() => handleFilter("listaOfertasComentadas")}
-          isClicked={filter === "listaOfertasComentadas"}
-        />
-
-        <Filter 
           title="Cupons"
           icon={RiCouponFill}
           onClick={() => handleFilter("listaOfertasCupons")}

@@ -21,6 +21,7 @@ export function Home() {
 
   function handleFilter(title){
     setFilter(title);
+    
   }
 
   async function handleProducts(){
@@ -45,13 +46,16 @@ export function Home() {
 
 
   useEffect(() => {
-    axios.post(`https://ofertaquente.com.br/api/${filter}`, {
-      pesquisa: search
-    })
-    .then((response) => setProducts([...response.data]) )
-    .catch(() => {
+    async function fetchProducts() {
+      await axios.post(`https://ofertaquente.com.br/api/${filter}`, {
+        pesquisa: search
+      })
+      .then((response) => setProducts([...response.data]) )
+      .catch((error) => {
+      })
+    }
 
-    })
+    fetchProducts();
   }, [search, filter]);
 
 
@@ -89,7 +93,7 @@ export function Home() {
           <img src={bannerImg} alt="" />
         </Banner>
         <Products>
-        {
+        { 
           products.map(product => {
             return (
               <Product 

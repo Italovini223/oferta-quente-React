@@ -26,7 +26,7 @@ export function Home() {
   }
 
   async function handleProducts(){
-    setPage(page + 1);
+    setPage(Number(page + 1));
 
     const response = await axios.post(`https://ofertaquente.com.br/api/${filter}?page=${page}`,{
       pesquisa: search,
@@ -38,12 +38,11 @@ export function Home() {
   useEffect(() => {
     async function fetchProducts() {
       console.log("foi eu")
-      await axios.post(`https://ofertaquente.com.br/api/${filter}`, {
+      const response = await axios.post(`https://ofertaquente.com.br/api/${filter}`, {
         pesquisa: search
       })
-      .then((response) => setProducts([...response.data]) )
-      .catch((error) => {
-      })
+      setProducts([...response.data])
+      
     }
 
     fetchProducts();
@@ -102,7 +101,7 @@ export function Home() {
         }
         </Products>
         <Button 
-          title="Mostrar mais produtos"
+          title="Ver mais produtos"
           onClick={handleProducts}
         />
       </Content>

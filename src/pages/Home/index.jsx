@@ -9,13 +9,14 @@ import {AiOutlineClockCircle, MdOutlineMessage, RiCouponFill} from 'react-icons/
 import {Product} from '../../components/Product';
 import {Header} from '../../components/Header';
 import {Filter} from '../../components/Filter'
+import {Button} from '../../components/Button'
 
 import bannerImg from '../../assets/Carrossel Infinito Oferta Quente (1).png'
 
 
 export function Home() {
   const [products, setProducts] = useState([]);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(2);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("listaOfertaRecentes");
 
@@ -25,28 +26,18 @@ export function Home() {
   }
 
   async function handleProducts(){
-    setPage(prevState => prevState + 1);
+    setPage(page + 1);
 
-    await axios.post(`https://ofertaquente.com.br/api/${filter}?page=${page}`,{
+    const response = await axios.post(`https://ofertaquente.com.br/api/${filter}?page=${page}`,{
       pesquisa: search,
     })
-    .then(response => setProducts([...products, ...response.data]));
+
+    setProducts([...products, ...response.data])  
   }
 
   useEffect(() => {
-    const intersectionObserver = new IntersectionObserver((entries) => {
-      if(entries.some((entry) => entry.isIntersecting)) {
-        handleProducts();
-      }
-    });
-    intersectionObserver.observe(document.querySelector('#endScroll'));
- 
-    return () => intersectionObserver.disconnect();
-  },[products])
-
-
-  useEffect(() => {
     async function fetchProducts() {
+      console.log("foi eu")
       await axios.post(`https://ofertaquente.com.br/api/${filter}`, {
         pesquisa: search
       })
@@ -110,7 +101,10 @@ export function Home() {
           })
         }
         </Products>
-        <div id='endScroll' />
+        <Button 
+          title="Mostrar mais produtos"
+          onClick={handleProducts}
+        />
       </Content>
     </Container>
   )

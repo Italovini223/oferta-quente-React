@@ -1,13 +1,16 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+export const Container = styled.button`
   display: flex;
   flex-direction: column;
   gap: 5px;
 
   align-items: center;
 
+  border: none;
+  background: none;
 
+  color: ${({clicked}) => clicked ? "red" : "back" };
 
   > span {
     background-color: transparent;
@@ -15,5 +18,6 @@ export const Container = styled.div`
 
   > svg {
     background: transparent;
+    font-size: 24px;
   }
 `;

@@ -7,7 +7,7 @@ import {FiSearch} from 'react-icons/fi'
 import logoImg from '../../assets/logo-sem-fundo.ico'
 import { Filter } from "../Filter";
 
-export function Header({onChange, value}){
+export function Header({onChange, value, children}){
   return (
     <Container>
       <Top>
@@ -20,7 +20,9 @@ export function Header({onChange, value}){
           value={value}
         />
       </Top>
-
+      <Bottom>
+        {children}
+      </Bottom>
     </Container>
   )
 }

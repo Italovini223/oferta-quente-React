@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.header`
   width: 100%;
-  height: 150px;
+  height: 160px;
 
   display: flex;
   flex-direction: column;
@@ -37,8 +37,10 @@ export const Bottom = styled.div`
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
+  gap: 5rem;
 
-  gap: 2rem;
+  margin-top: 10px;
+
   width: 50%;
 
   list-style: none;

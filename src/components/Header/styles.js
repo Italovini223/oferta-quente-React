@@ -32,6 +32,13 @@ export const Top = styled.div`
     width: 60px;
     height: 60px;
   }
+
+  @media(max-width: 700px){
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
 `;
 
 export const Bottom = styled.div`
@@ -45,5 +52,9 @@ export const Bottom = styled.div`
   width: 50%;
 
   list-style: none;
+
+  @media(max-width: 700px){
+    gap: 1rem;
+  }
 
 `;

@@ -19,6 +19,7 @@ export const Container = styled.header`
 
 export const Top = styled.div`
   display: flex;
+  align-items: center;
 
   justify-content: space-around;
   width: 50%;
@@ -28,8 +29,15 @@ export const Top = styled.div`
 
 
   > img {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
+  }
+
+  @media(max-width: 700px){
+    img {
+      width: 40px;
+      height: 40px;
+    }
   }
 `;
 
@@ -37,14 +45,16 @@ export const Bottom = styled.div`
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
+  gap: 5rem;
 
-  gap: 2rem;
+  margin-top: 10px;
+
   width: 50%;
 
   list-style: none;
 
-  @media (max-width: 768px) {
-    display: none;
+  @media(max-width: 700px){
+    gap: 1rem;
   }
 
 `;

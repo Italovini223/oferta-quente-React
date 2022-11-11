@@ -9,50 +9,42 @@ import {AiOutlineClockCircle, MdOutlineMessage, RiCouponFill} from 'react-icons/
 import {Product} from '../../components/Product';
 import {Header} from '../../components/Header';
 import {Filter} from '../../components/Filter'
+import {Button} from '../../components/Button'
 
 import bannerImg from '../../assets/Carrossel Infinito Oferta Quente (1).png'
 
 
 export function Home() {
   const [products, setProducts] = useState([]);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(2);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("listaOfertaRecentes");
 
   function handleFilter(title){
     setFilter(title);
+    setPage(2)
     
   }
 
   async function handleProducts(){
-    setPage(prevState => prevState + 1);
+    setPage(Number(page + 1));
 
-    await axios.post(`https://ofertaquente.com.br/api/${filter}?page=${page}`,{
+    const response = await axios.post(`https://ofertaquente.com.br/api/${filter}?page=${page}`,{
       pesquisa: search,
+      page
     })
-    .then(response => setProducts([...products, ...response.data]));
+
+    setProducts([...products, ...response.data]);
+    
   }
 
   useEffect(() => {
-    const intersectionObserver = new IntersectionObserver((entries) => {
-      if(entries.some((entry) => entry.isIntersecting)) {
-        handleProducts();
-      }
-    });
-    intersectionObserver.observe(document.querySelector('#endScroll'));
- 
-    return () => intersectionObserver.disconnect();
-  },[products])
-
-
-  useEffect(() => {
     async function fetchProducts() {
-      await axios.post(`https://ofertaquente.com.br/api/${filter}`, {
+      const response = await axios.post(`https://ofertaquente.com.br/api/${filter}`, {
         pesquisa: search
       })
-      .then((response) => setProducts([...response.data]) )
-      .catch((error) => {
-      })
+      setProducts([...response.data])
+      
     }
 
     fetchProducts();
@@ -75,18 +67,18 @@ export function Home() {
         />
 
         <Filter 
-          title="Comentadas"
-          icon={MdOutlineMessage}
-          onClick={() => handleFilter("listaOfertasComentadas")}
-          isClicked={filter === "listaOfertasComentadas"}
-        />
-
-        <Filter 
           title="Cupons"
           icon={RiCouponFill}
           onClick={() => handleFilter("listaOfertasCupons")}
           isClicked={filter === "listaOfertasCupons"}
         />
+
+        <Filter 
+          title="Comentadas"
+          icon={MdOutlineMessage}
+          onClick={() => handleFilter("listaOfertasComentadas")}
+          isClicked={filter === "listaOfertasComentadas"}
+        />  
       </Header>
       <Content>
         <Banner >
@@ -110,7 +102,10 @@ export function Home() {
           })
         }
         </Products>
-        <div id='endScroll' />
+        <Button 
+          title="Ver mais produtos"
+          onClick={handleProducts}
+        />
       </Content>
     </Container>
   )

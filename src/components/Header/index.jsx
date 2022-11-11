@@ -4,8 +4,8 @@ import { Container, Top,Bottom } from "./styles";
 
 import {FiSearch} from 'react-icons/fi'
 
-import logoImg from '../../assets/logo-sem-fundo.ico'
-import { Filter } from "../Filter";
+import logoImg from '../../assets/oferta quente branco.svg'
+
 
 export function Header({onChange, value, children}){
   return (

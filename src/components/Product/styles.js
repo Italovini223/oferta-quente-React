@@ -11,6 +11,18 @@ export const Container = styled.div`
   flex-direction: column;
 
   background-color: ${({theme})=> theme.COLORS.WHITE};
+
+  @media(max-width: 375px){
+    max-width: 320px;
+  }
+
+  @media(max-width: 425px){
+    max-width: 400px;
+  }
+
+  @media(max-width: 768px){
+    max-width: 350px;
+  }
 `;
 
 export const Description = styled.div`
@@ -39,6 +51,8 @@ export const Description = styled.div`
     -webkit-line-clamp: 2; /* number of lines to show */
     -webkit-box-orient: vertical;
   }
+
+
 `;
 
 export const Information = styled.div`
@@ -56,6 +70,7 @@ export const Information = styled.div`
 
   > img {
     width: 60px;
+    max-height: 40px;
 
   }
 `;
@@ -84,9 +99,14 @@ export const ButtonLink = styled.a`
   background: none;
   text-decoration: none;
 
+  display: flex;
+  align-items: center;
+  gap: 2px;
+
   padding: 4px;
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 4px;
+
 
   color: black;
   font-weight: 800;

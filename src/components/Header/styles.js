@@ -43,8 +43,4 @@ export const Bottom = styled.div`
 
   list-style: none;
 
-  @media (max-width: 768px) {
-    display: none;
-  }
-
 `;

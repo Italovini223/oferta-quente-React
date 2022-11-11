@@ -11,6 +11,10 @@ export const Container = styled.div`
   flex-direction: column;
 
   background-color: ${({theme})=> theme.COLORS.WHITE};
+
+  @media(max-width: 768px){
+    max-width: 400px;
+  }
 `;
 
 export const Description = styled.div`

@@ -12,6 +12,14 @@ export const Container = styled.div`
 
   background-color: ${({theme})=> theme.COLORS.WHITE};
 
+  @media(max-width: 375px){
+    max-width: 330px;
+  }
+
+  @media(max-width: 425px){
+    max-width: 400px;
+  }
+
   @media(max-width: 768px){
     max-width: 350px;
   }
@@ -60,6 +68,7 @@ export const Information = styled.div`
 
   > img {
     width: 60px;
+    max-height: 40px;
 
   }
 `;

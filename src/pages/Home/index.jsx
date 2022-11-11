@@ -22,6 +22,7 @@ export function Home() {
 
   function handleFilter(title){
     setFilter(title);
+    setPage(2)
     
   }
 
@@ -30,14 +31,15 @@ export function Home() {
 
     const response = await axios.post(`https://ofertaquente.com.br/api/${filter}?page=${page}`,{
       pesquisa: search,
+      page
     })
 
-    setProducts([...products, ...response.data])  
+    setProducts([...products, ...response.data]);
+    
   }
 
   useEffect(() => {
     async function fetchProducts() {
-      console.log("foi eu")
       const response = await axios.post(`https://ofertaquente.com.br/api/${filter}`, {
         pesquisa: search
       })
@@ -70,6 +72,13 @@ export function Home() {
           onClick={() => handleFilter("listaOfertasCupons")}
           isClicked={filter === "listaOfertasCupons"}
         />
+
+        <Filter 
+          title="Comentadas"
+          icon={MdOutlineMessage}
+          onClick={() => handleFilter("listaOfertasComentadas")}
+          isClicked={filter === "listaOfertasComentadas"}
+        />  
       </Header>
       <Content>
         <Banner >

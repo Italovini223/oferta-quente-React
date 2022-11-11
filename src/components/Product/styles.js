@@ -13,7 +13,7 @@ export const Container = styled.div`
   background-color: ${({theme})=> theme.COLORS.WHITE};
 
   @media(max-width: 375px){
-    max-width: 330px;
+    max-width: 320px;
   }
 
   @media(max-width: 425px){
@@ -51,6 +51,8 @@ export const Description = styled.div`
     -webkit-line-clamp: 2; /* number of lines to show */
     -webkit-box-orient: vertical;
   }
+
+
 `;
 
 export const Information = styled.div`

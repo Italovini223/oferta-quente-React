@@ -13,7 +13,7 @@ export const Container = styled.div`
   background-color: ${({theme})=> theme.COLORS.WHITE};
 
   @media(max-width: 768px){
-    max-width: 400px;
+    max-width: 350px;
   }
 `;
 
@@ -88,9 +88,14 @@ export const ButtonLink = styled.a`
   background: none;
   text-decoration: none;
 
+  display: flex;
+  align-items: center;
+  gap: 2px;
+
   padding: 4px;
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 4px;
+
 
   color: black;
   font-weight: 800;

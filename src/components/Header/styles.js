@@ -19,6 +19,7 @@ export const Container = styled.header`
 
 export const Top = styled.div`
   display: flex;
+  align-items: center;
 
   justify-content: space-around;
   width: 50%;
@@ -28,8 +29,8 @@ export const Top = styled.div`
 
 
   > img {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
   }
 `;
 

@@ -7,6 +7,8 @@ export const Container = styled.button`
 
   align-items: center;
 
+  font-weight: 700;
+
   border: none;
   background: none;
 

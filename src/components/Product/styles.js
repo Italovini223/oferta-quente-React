@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+export const Container = styled.button`
   max-width: 500px;
   min-height: 280px;
 
@@ -11,6 +11,7 @@ export const Container = styled.div`
   flex-direction: column;
 
   background-color: ${({theme})=> theme.COLORS.WHITE};
+  border: none;
 
   @media(max-width: 375px){
     max-width: 320px;

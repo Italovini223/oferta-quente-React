@@ -55,6 +55,7 @@ export const ProductDetail = styled.div`
   width: 100%;
 
 
+
   display: flex;
   gap: 10px;
 
@@ -76,7 +77,7 @@ export const ProductDetail = styled.div`
     height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 20px;
 
     h2{
       font-weight: 700;
@@ -85,7 +86,7 @@ export const ProductDetail = styled.div`
 
     strong{
       color: green;
-      font-size: 2rem;
+      font-size: 2.5rem;
     }
   
 

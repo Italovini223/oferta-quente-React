@@ -57,11 +57,13 @@ export const Description = styled.div`
 `;
 
 export const Information = styled.div`
+  width: 100%;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  margin: 0 10px;
+  
+  padding: 0 10px;
 
   > span {
     color: green;
@@ -72,7 +74,6 @@ export const Information = styled.div`
   > img {
     width: 60px;
     max-height: 40px;
-
   }
 `;
 

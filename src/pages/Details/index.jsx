@@ -2,16 +2,24 @@ import { useEffect, useState } from "react";
 import { Container, Content, Header, ProductDetail } from "./styles";
 
 import logoImg from '../../assets/oferta quente branco.svg'
+import axios from "axios";
 
 
 
 export function Details() {
   const [product, setProduct] = useState({})
+  const [comment, setComment] = useState({})
+
+  async function getComments(id){
+    const response = await axios.post("http://ofertaquente.com.br/api/listaComentarios", {
+      id
+    })
+    setComment({response})
+  }
 
   useEffect(() => {
     const productInLocal = localStorage.getItem('@ofertaQuente:produto')
-    setProduct(JSON.parse(productInLocal))
-
+    setProduct(JSON.parse(productInLocal));
   }, []);
 
   return (

@@ -8,7 +8,8 @@ export const Container = styled.div`
   grid-template-rows: 150px auto;
   grid-template-areas:
   "header"
-  "content";
+  "content"
+  "comments";
   
   background-color: ${({theme}) => theme.COLORS.BACKGROUND_900};
 `;
@@ -124,6 +125,18 @@ export const ProductDetail = styled.div`
       border: none;
     }
   }
+`;
 
+export const Comments = styled.div`
+  width: 50%;
+  margin: 0 auto;
 
+  gap: 10px;
+
+  display: flex;
+  flex-direction: column;
+
+  grid-area: comments;
+
+  background-color: #fff;
 `;

@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react";
-import { Container, Content, Header, ProductDetail } from "./styles";
+import { Comments, Container, Content, Header, ProductDetail } from "./styles";
+
+import axios from "axios";
+
+import {FaCommentAlt} from 'react-icons/fa'
 
 import logoImg from '../../assets/oferta quente branco.svg'
-import axios from "axios";
+
+import { Comment } from "../../components/Comment";
 
 
 
@@ -55,6 +60,11 @@ export function Details() {
         
       }
      </Content>
+     <Comments>
+      <Comment />
+      <Comment /> 
+      
+     </Comments>
     </Container>
   )
 }

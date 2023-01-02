@@ -13,8 +13,6 @@ function AuthProvider({children}){
     try{
       const response = await api.post('/login', {email, password});
 
-      console.log(response.data);
-
       const {user} = response.data
 
       localStorage.setItem("@ofertaQuente:user", JSON.stringify(user));
@@ -35,9 +33,8 @@ function AuthProvider({children}){
   useEffect(() => {
     const user = localStorage.getItem("@ofertaQuente:user");
 
-    if(user) {
+    if(user !== 'undefined') {
       api.defaults.headers.common['Authorization'] = `Bearer ${user.token}`
-
       setData({user: JSON.parse(user)});
     }
   }, [])

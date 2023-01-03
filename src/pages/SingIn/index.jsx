@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Container, Content, StorageInfo, UserInfo } from "./styles";
 import {Link} from 'react-router-dom'
 
-import {FiUser, FiLock} from 'react-icons/fi'
+import {FiMail, FiLock} from 'react-icons/fi'
 import {useAuth} from '../../hooks/auth'
 
 import logo from '../../assets/logo-sem-fundo.ico';
@@ -28,7 +28,7 @@ export function SingIn(){
         </StorageInfo>
         <UserInfo>
           <Input 
-            icon={FiUser} 
+            icon={FiMail} 
             placeholder="E-mail" 
             singIn
             onChange={e => setEmail(e.target.value)}
@@ -44,7 +44,7 @@ export function SingIn(){
             title="Entrar" 
             onClick={handleSingIn}
           />
-          <Link to="/register">Criar conta</Link>
+          <a href="/register">Criar Conta</a>
         </UserInfo>
       </Content>
     </Container>

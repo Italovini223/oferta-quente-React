@@ -15,7 +15,9 @@ export const Content = styled.div`
   align-items: center;
   gap: 50px;
   
-
+  @media(min-width: 768px){
+    width: 500px;
+  }
 
 `;
 
@@ -43,4 +45,9 @@ export const UserInfo = styled.div`
   align-items: center;
   gap: 30px;
 
+ > a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+ }
 `;

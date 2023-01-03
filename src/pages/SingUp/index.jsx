@@ -81,6 +81,8 @@ export function SingUp(){
             onClick={handleSingUp} 
           />
 
+          <a href="/">Fazer Login</a>
+
         </UserInfo>
       </Content>
     </Container>

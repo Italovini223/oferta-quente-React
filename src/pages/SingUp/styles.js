@@ -44,5 +44,10 @@ export const UserInfo = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 30px;
-
+  
+  > a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+ }
 `;

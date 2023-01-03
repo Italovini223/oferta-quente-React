@@ -6,7 +6,7 @@ import { Home } from '../pages/Home'
 export function AppRoutes() {
   return(
     <Routes>
-      <Route path='/' element={<Home />} />
+      <Route path='/SingIn' element={<Home />} />
       <Route path='details' element={<Details />} />
     </Routes>
   )

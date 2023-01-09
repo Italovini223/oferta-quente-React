@@ -8,7 +8,7 @@ export const Container = styled.button`
   justify-content: center;
   align-items: center;
 
-  background-color: ${({previous}) => previous ? 'black' : 'red'};
+  background-color: ${({previous}) => previous ? 'green' : 'red'};
   color: white;
 
   border: none;

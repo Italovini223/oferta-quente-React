@@ -33,6 +33,7 @@ function AuthProvider({children}){
 
   function singOut(){
     localStorage.removeItem("@ofertaQuente:user");
+    setData({});
   }
 
   useEffect(() => {

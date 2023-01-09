@@ -36,9 +36,7 @@ export function Header({onChange, value, children}){
       </Bottom>
       </Content>
       <UserContent>
-        {
-          user ? <UserDetails /> : <Button title="Registre-se" onClick={handleSingIn} />
-        }
+        <UserDetails />
       </UserContent>
     </Container>
   )

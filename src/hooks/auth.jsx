@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { useState, useEffect } from "react";
 import { createContext } from "react";
-import { json } from "react-router-dom";
 import { api } from "../Service/api";
+
 
 const AuthContext = createContext({});
 
@@ -21,6 +21,7 @@ function AuthProvider({children}){
 
       setData({user});
 
+
     } catch(error){
       if(error.response){
         alert(error.response.data.message)
@@ -30,10 +31,14 @@ function AuthProvider({children}){
     }
   }
 
+  function singOut(){
+    localStorage.removeItem("@ofertaQuente:user");
+  }
+
   useEffect(() => {
     const user = localStorage.getItem("@ofertaQuente:user");
 
-    if(user !== 'undefined') {
+    if(user) {
       api.defaults.headers.common['Authorization'] = `Bearer ${user.token}`
       setData({user: JSON.parse(user)});
     }
@@ -42,6 +47,7 @@ function AuthProvider({children}){
   return(
     <AuthContext.Provider value={{
       singIn,
+      singOut,
       user: data.user
     }}>
       {children}

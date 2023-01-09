@@ -4,6 +4,8 @@ import {Link} from 'react-router-dom'
 
 import {FiMail, FiLock} from 'react-icons/fi'
 import {useAuth} from '../../hooks/auth'
+import { useNavigate } from "react-router-dom";
+
 
 import logo from '../../assets/logo-sem-fundo.ico';
 import { Input } from "../../components/Input";
@@ -13,10 +15,12 @@ export function SingIn(){
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const {singIn} = useAuth();
+  const {singIn, user} = useAuth();
+  const navigate = useNavigate();
   
   function handleSingIn() {
     singIn({email, password});
+    navigate("/");
   }
   return (
     <Container>

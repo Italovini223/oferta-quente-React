@@ -16,6 +16,7 @@ function AuthProvider({children}){
       const {user} = response.data
 
       localStorage.setItem("@ofertaQuente:user", JSON.stringify(user));
+      localStorage.setItem("@ofertaQuente:token", user.token)
 
       api.defaults.headers.common['Authorization'] = `Bearer ${user.token}`
 
@@ -41,7 +42,9 @@ function AuthProvider({children}){
 
     if(user) {
       api.defaults.headers.common['Authorization'] = `Bearer ${user.token}`
-      setData({user: JSON.parse(user)});
+      setData({
+        user: JSON.parse(user)
+      });
     }
   }, [])
 
@@ -49,7 +52,7 @@ function AuthProvider({children}){
     <AuthContext.Provider value={{
       singIn,
       singOut,
-      user: data.user
+      user: data.user,
     }}>
       {children}
     </AuthContext.Provider>

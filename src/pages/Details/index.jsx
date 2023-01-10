@@ -53,10 +53,12 @@ export function Details() {
   useEffect(() => {
     const productInLocal = localStorage.getItem('@ofertaQuente:produto')
     setProduct(JSON.parse(productInLocal));
+    console.log(user)
   }, []);
 
   useEffect(() => {
     getComments()
+    console.log(product)
   }, [product])
 
   return (

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.button`
+export const Container = styled.div`
   max-width: 500px;
   min-height: 280px;
 
@@ -26,7 +26,7 @@ export const Container = styled.button`
   }
 `;
 
-export const Description = styled.div`
+export const Description = styled.button`
   display: flex;
   gap: 10px;
   align-items: center;
@@ -37,6 +37,10 @@ export const Description = styled.div`
 
   font-size: clamp(16px, 18px, 20px);
   font-weight: 700;
+
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 
   > img {
     object-fit: cover;
@@ -97,23 +101,23 @@ export const Utils = styled.div`
  
 `;
 
-export const ButtonLink = styled.a`
-  background: none;
-  text-decoration: none;
+export const Actions = styled.div`
+
 
   display: flex;
   align-items: center;
-  gap: 2px;
-
-  padding: 4px;
-  border: 1px solid black;
-  border-radius: 4px;
-
-
-  color: black;
-  font-weight: 800;
+  gap: 10px;
   
-  cursor: pointer;
+
+  button {
+    border: none;
+    background-color: transparent;
+    font-size: 2rem;
+    cursor: pointer;
+    color: grey;
+  }
+
+
 `;
 
 export const UserInfo= styled.div`

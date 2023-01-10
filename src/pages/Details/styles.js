@@ -38,6 +38,11 @@ export const Header = styled.header`
     font-size: 20px;
     color: ${({theme}) => theme.COLORS.RED};
   }
+
+  @media(max-width: 400px){
+    width: 100%;
+    padding: 5px;
+  }
 `;
 
 export const Content = styled.div`
@@ -59,6 +64,11 @@ export const Content = styled.div`
 
     font-size: 20px;
     color: ${({theme}) => theme.COLORS.RED};
+  }
+
+  @media(max-width: 400px){
+    width: 100%;
+    padding: 5px;
   }
 
 `;
@@ -162,6 +172,11 @@ export const Comments = styled.div`
 
   grid-area: comments;
 
+  @media(max-width: 400px){
+    width: 100%;
+    padding: 5px;
+  }
+
 
 `;
 
@@ -187,5 +202,10 @@ export const AddComment = styled.div`
     color: ${({theme}) => theme.COLORS.RED};
 
     cursor: pointer;
+  }
+
+  @media(max-width: 400px){
+    width: 100%;
+    padding: 5px;
   }
 `;

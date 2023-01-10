@@ -20,7 +20,7 @@ export function SingIn(){
   
   function handleSingIn() {
     singIn({email, password});
-    navigate("/");
+    navigate(-1);
   }
   return (
     <Container>

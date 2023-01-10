@@ -30,14 +30,14 @@ export function SingUp(){
     })
     .then(response => {
       if(response){
-        alert("Cadastrado com sucesso")
+        alert("Usuário Cadastrado com sucesso!")
       }
 
       navigate("/");
     })
     .catch(error => {
       if(error){
-        alert("Não foi possível cadastrar")
+        return alert("Não foi possível cadastrar!")
       }
     })
   }

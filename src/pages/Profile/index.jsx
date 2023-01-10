@@ -7,7 +7,7 @@ import defaultAvatar from '../../assets/avatar_placeholder.svg'
 
 export function Profile(){
   const {user, singOut} = useAuth();
-  const avatarUrl = user.imagem ? `https://ofertaquente.com.br/${user.imagem}` : defaultAvatar;
+  const avatarUrl = user ? `https://ofertaquente.com.br/${user.imagem}` : defaultAvatar;
   const navigate = useNavigate();
 
   function handleSingOut(){

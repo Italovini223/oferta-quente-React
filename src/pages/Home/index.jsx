@@ -1,9 +1,11 @@
-import axios from 'axios';
-
 import {useState, useEffect} from 'react';
 
-import { Banner, Container, Content, Products,} from "./styles";
+import axios from 'axios';
 
+import {useAuth} from '../../hooks/auth'
+
+
+import { Banner, Container, Content, Products,} from "./styles";
 import {AiOutlineClockCircle, MdOutlineMessage, RiCouponFill} from 'react-icons/all'
 
 import {Product} from '../../components/Product';
@@ -12,7 +14,6 @@ import {Filter} from '../../components/Filter'
 import {Button} from '../../components/Button'
 
 import bannerImg from '../../assets/Carrossel Infinito Oferta Quente (1).png'
-import { json, useNavigate } from 'react-router-dom';
 
 
 export function Home() {
@@ -21,13 +22,12 @@ export function Home() {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("listaOfertaRecentes");
 
-  const navigate = useNavigate();
+  const {user} = useAuth();
 
-  function getProduct(product) {
-    localStorage.setItem('@ofertaQuente:produto', JSON.stringify(product));
-;
-    navigate('/details')
-  }
+
+
+
+
   function handleFilter(title){
     setFilter(title);
     setPage(2)
@@ -39,7 +39,7 @@ export function Home() {
 
     const response = await axios.post(`https://ofertaquente.com.br/api/${filter}?page=${page}`,{
       pesquisa: search,
-      page
+      page,
     })
 
     setProducts([...products, ...response.data]);
@@ -49,9 +49,10 @@ export function Home() {
   useEffect(() => {
     async function fetchProducts() {
       const response = await axios.post(`https://ofertaquente.com.br/api/${filter}`, {
-        pesquisa: search
+        pesquisa: search,
       })
       setProducts([...response.data])
+      console.log(user)
       
     }
 
@@ -97,15 +98,9 @@ export function Home() {
           products.map(product => {
             return (
               <Product 
-                image={`https://ofertaquente.com.br/${product.imagem}`}
-                description={product.nome}
-                price={`R$ ${product.preco}`}
-                storeLogo={`https://ofertaquente.com.br/${product.imagemLoja}`}
-                userImage={`https://ofertaquente.com.br/${product.imagemUsuario}`}
-                usrName={product.nameUsuario}
-                link={product.link}
+                data={product}
+                IsLiked={product.curtidaUser === "true"}
                 key={product.id}
-                onClick={() => getProduct(product)}
               />
             )
           })

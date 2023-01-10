@@ -1,37 +1,73 @@
 import { useEffect, useState } from "react";
-import { Comments, Container, Content, Header, ProductDetail } from "./styles";
+import { useNavigate } from "react-router-dom";
 
-import axios from "axios";
 
-import {FaCommentAlt} from 'react-icons/fa'
+import { AddComment, Comments, Container, Content, Header, ProductDetail } from "./styles";
 
-import logoImg from '../../assets/oferta quente branco.svg'
+import {api} from '../../Service/api';
+import {useAuth} from '../../hooks/auth'
 
-import { Comment } from "../../components/Comment";
+import {FiArrowLeft} from 'react-icons/fi';
+import {IoMdSend} from 'react-icons/io'
+import {FaCommentAlt} from 'react-icons/fa';
 
+import {Comment} from '../../components/Comment';
+import {Input} from '../../components/Input';
 
 
 export function Details() {
-  const [product, setProduct] = useState({})
-  const [comment, setComment] = useState({})
+  const [product, setProduct] = useState({});
+  const [comments, setComments] = useState([]);
+  const [newComment, setNewComment] = useState("");
 
-  async function getComments(id){
-    const response = await axios.post("http://ofertaquente.com.br/api/listaComentarios", {
-      id
+  const navigate = useNavigate();
+  const {user} = useAuth();
+
+  async function getComments(){
+    const response = await api.post("/listaComentarios",{
+      idOferta: product.id
     })
-    setComment({response})
+    setComments([...response.data])
   }
+
+  async function handleNewComment(){
+    if(!user) {
+      navigate("/singIn")
+    }
+
+   await api.post("/cadastrarComentarios", {
+      idOferta: product.id,
+      idUsuario: user.id,
+      mensagem: newComment
+    }) 
+    .then(alert("Comentário cadastrado com sucesso!"))
+    .catch(error => alert("Nao foi possível cadastrar o comentário! "))
+  }
+
+  function handleBack() {
+    navigate(-1)
+  }
+
+
 
   useEffect(() => {
     const productInLocal = localStorage.getItem('@ofertaQuente:produto')
     setProduct(JSON.parse(productInLocal));
   }, []);
 
+  useEffect(() => {
+    getComments()
+  }, [product])
+
   return (
     <Container>
      <Header>
-      <img src={logoImg} alt="" />
-      <h1>Oferta quente</h1>
+      <button
+        onClick={handleBack}
+      >
+        <FiArrowLeft />
+        <p>Voltar</p>
+      </button>
      </Header>
      <Content>
       {
@@ -59,12 +95,37 @@ export function Details() {
         </ProductDetail>
         
       }
+      <div className="commentsAmount">
+        <FaCommentAlt />
+        <p>{comments.length} comentário(s)</p>
+      </div>
      </Content>
-     <Comments>
-      <Comment />
-      <Comment /> 
-      
-     </Comments>
+      {
+        comments.length > 0 &&
+        <Comments>
+          {
+             comments.map(comment => (
+                <Comment 
+                  data={comment}
+                  key={comment.id}
+                />
+              )) 
+          }
+        </Comments>
+      }
+
+      <AddComment>
+        <Input 
+          placeholder="Enviar um comentário" 
+          onChange ={e => setNewComment(e.target.value)} 
+          
+        />
+        <button
+          onClick={handleNewComment}
+        >
+          <IoMdSend />
+        </button>
+      </AddComment>
     </Container>
   )
 }

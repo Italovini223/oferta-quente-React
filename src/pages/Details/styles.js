@@ -2,40 +2,41 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
-  height: 100vh;
 
   display: grid;
-  grid-template-rows: 150px auto;
+  grid-template-rows: 50px auto auto auto;
   grid-template-areas:
   "header"
   "content"
-  "comments";
+  "comments"
+  "addComment";
   
-  background-color: ${({theme}) => theme.COLORS.BACKGROUND_900};
+  background-color: ${({theme}) => theme.COLORS.WHITE};
 `;
 
 export const Header = styled.header`
-  width: 100%;
-  height: 150px;
+  width: 50%;
+  height: 50px;
+
+  margin: 0 auto;
 
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
+  justify-content: left;
   
   grid-area: header;
 
   background-color: ${({theme}) => theme.COLORS.WHITE};
   
-  
-  > img {
+  > button {
+    display: flex;
+    gap: 5px;
 
-    width: 60px;
-    height: 60px;
-  }
+    border: none;
+    background-color: transparent;
 
-  > span {
-
+    font-size: 20px;
+    color: ${({theme}) => theme.COLORS.RED};
   }
 `;
 
@@ -47,12 +48,23 @@ export const Content = styled.div`
 
   grid-area: content;
 
-  overflow-y: auto;
+  > .commentsAmount{
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    margin-bottom: 10px;
+
+    font-size: 20px;
+    color: ${({theme}) => theme.COLORS.RED};
+  }
 
 `;
 
 export const ProductDetail = styled.div`
-  margin: 50px auto 0;
+  margin: 50px auto 20px;
   width: 100%;
 
 
@@ -61,28 +73,42 @@ export const ProductDetail = styled.div`
   gap: 10px;
 
   padding: 10px;
+  border-bottom: 1px solid red;
   
 
   background-color: ${({theme}) => theme.COLORS.WHITE};
+
+  @media(max-width: 1024px){
+    flex-direction: column;
+    align-items: center;
+
+    .image{
+      width: 100%;
+    }
+  }
 
   > .image {
      width: 50%;
     img {
       max-width: 100%;
       object-fit: cover;
+
     }
   }
 
   > .details {
     width: 100%;
     height: 100%;
+
+    margin: 20px 0;
+
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 40px;
 
     h2{
       font-weight: 700;
-      font-size: 2.2rem;
+      font-size: clamp(1.9rem 2rem 2.2rem);
     }
 
     strong{
@@ -131,12 +157,35 @@ export const Comments = styled.div`
   width: 50%;
   margin: 0 auto;
 
-  gap: 10px;
-
   display: flex;
   flex-direction: column;
 
   grid-area: comments;
 
-  background-color: #fff;
+
+`;
+
+export const AddComment = styled.div`
+  width: 50%;
+  margin: 10px auto 20px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  grid-area: addComment;
+
+
+  > button {
+
+    
+    border: none;
+    background-color: transparent;
+
+    font-size: 30px;
+
+    color: ${({theme}) => theme.COLORS.RED};
+
+    cursor: pointer;
+  }
 `;

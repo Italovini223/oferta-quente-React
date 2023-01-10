@@ -15,6 +15,12 @@ export const Container = styled.div`
 
   background-color: #fff ;
 
+  > div {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+  }
+
   > img {
     width: 50px;
     height: 50px;
@@ -23,5 +29,9 @@ export const Container = styled.div`
 
   > p {
     margin-left: 20px;
+  }
+
+  @media(max-width: 400px){
+    height: 150px;
   }
 `;

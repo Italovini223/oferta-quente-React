@@ -14,6 +14,7 @@ export const Container = styled.header`
   grid-area: header;
 
   background-color: ${({theme}) => theme.COLORS.WHITE};
+
 `;
 
 
@@ -24,6 +25,10 @@ export const UserContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media(max-width: 375px){
+    display: none;
+  }
 
 `;
 

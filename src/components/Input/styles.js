@@ -8,7 +8,7 @@ export const Container = styled.div`
   align-items: center;
   gap: 8px;
 
-  border: 1px solid red;
+  border: ${({SingIn}) => SingIn ? '1px solid white' : '1px solid red'  } ;
   border-radius: 10px;
 
   padding: 0 10px;
@@ -22,10 +22,10 @@ export const Container = styled.div`
     border: none;
     background-color: transparent;
 
-    color: red;
+    color: ${({SingIn}) => SingIn ? 'white' : 'red'};
 
     &::placeholder {
-      color: red;
+      color: ${({SingIn}) => SingIn ? 'white' : 'red'};
     }
 
     &:focus {
@@ -35,7 +35,7 @@ export const Container = styled.div`
   }
 
   > svg {
-    color: red;
+    color: ${({SingIn}) => SingIn ? 'white' : 'red'};
     font-size: 24px;
     background-color: transparent;
   }

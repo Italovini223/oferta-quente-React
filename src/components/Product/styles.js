@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+export const Container = styled.button`
   max-width: 500px;
   min-height: 280px;
 
@@ -11,6 +11,7 @@ export const Container = styled.div`
   flex-direction: column;
 
   background-color: ${({theme})=> theme.COLORS.WHITE};
+  border: none;
 
   @media(max-width: 375px){
     max-width: 320px;
@@ -56,11 +57,13 @@ export const Description = styled.div`
 `;
 
 export const Information = styled.div`
+  width: 100%;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  margin: 0 10px;
+  
+  padding: 0 10px;
 
   > span {
     color: green;
@@ -71,7 +74,6 @@ export const Information = styled.div`
   > img {
     width: 60px;
     max-height: 40px;
-
   }
 `;
 

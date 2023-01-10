@@ -1,16 +1,27 @@
-import { useState, useEffect } from "react";
-import { Input } from "../Input";
-import { Container, Top,Bottom } from "./styles";
+import {useAuth} from '../../hooks/auth';
+import { useNavigate } from "react-router-dom";
+
+import { Container, Top,Bottom, Content, UserContent } from "./styles";
 
 import {FiSearch} from 'react-icons/fi'
+import logoImg from '../../assets/oferta quente branco.svg';
 
-import logoImg from '../../assets/oferta quente branco.svg'
+import { Button } from "../Button";
+import { Input } from "../Input";
+import {UserDetails} from '../UserDetails'
 
 
 export function Header({onChange, value, children}){
+  const {user} = useAuth();
+  const navigate = useNavigate();
+
+  function handleSingIn(){
+    navigate("/SingIn")
+  }
   return (
     <Container>
-      <Top>
+      <Content>
+        <Top>
         <img src={logoImg} alt="" />
         <Input 
           type="text"
@@ -23,6 +34,10 @@ export function Header({onChange, value, children}){
       <Bottom>
         {children}
       </Bottom>
+      </Content>
+      <UserContent>
+        <UserDetails />
+      </UserContent>
     </Container>
   )
 }

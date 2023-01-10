@@ -12,6 +12,7 @@ import {Filter} from '../../components/Filter'
 import {Button} from '../../components/Button'
 
 import bannerImg from '../../assets/Carrossel Infinito Oferta Quente (1).png'
+import { json, useNavigate } from 'react-router-dom';
 
 
 export function Home() {
@@ -20,6 +21,13 @@ export function Home() {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("listaOfertaRecentes");
 
+  const navigate = useNavigate();
+
+  function getProduct(product) {
+    localStorage.setItem('@ofertaQuente:produto', JSON.stringify(product));
+;
+    navigate('/details')
+  }
   function handleFilter(title){
     setFilter(title);
     setPage(2)
@@ -97,6 +105,7 @@ export function Home() {
                 usrName={product.nameUsuario}
                 link={product.link}
                 key={product.id}
+                onClick={() => getProduct(product)}
               />
             )
           })

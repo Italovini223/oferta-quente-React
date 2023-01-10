@@ -5,9 +5,8 @@ export const Container = styled.header`
   height: 150px;
 
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   align-items: center;
+
 
   padding: 20px 0;
 
@@ -15,6 +14,33 @@ export const Container = styled.header`
   grid-area: header;
 
   background-color: ${({theme}) => theme.COLORS.WHITE};
+
+`;
+
+
+export const UserContent = styled.div`
+  width: 100px;
+  margin-right: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media(max-width: 375px){
+    display: none;
+  }
+
+`;
+
+export const Content = styled.div`
+  width: 100%;
+
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 `;
 
 export const Top = styled.div`
@@ -39,6 +65,7 @@ export const Top = styled.div`
       height: 40px;
     }
   }
+
 `;
 
 export const Bottom = styled.div`

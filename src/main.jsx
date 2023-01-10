@@ -2,17 +2,21 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 
 import { ThemeProvider } from 'styled-components'
+import {AuthProvider} from './hooks/auth'
 
-import {Home} from './pages/Home'
 import GlobalStyles from './styles/global'
 import theme from './styles/theme'
+
+import {Routes} from './Routes'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <Home />
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
     </ThemeProvider>
   </React.StrictMode>
 )

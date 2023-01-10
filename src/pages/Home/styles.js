@@ -30,6 +30,7 @@ export const Content = styled.div`
  
 
   overflow-y: auto;
+  overflow-x: hidden;
 
   @media(max-width: 1024px) {
     max-width: 100%;

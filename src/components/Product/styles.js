@@ -55,6 +55,8 @@ export const Description = styled.button`
     display: -webkit-box;
     -webkit-line-clamp: 2; /* number of lines to show */
     -webkit-box-orient: vertical;
+
+    color: black;
   }
 
 

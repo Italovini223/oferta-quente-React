@@ -14,6 +14,8 @@ import {FaCommentAlt} from 'react-icons/fa';
 import {Comment} from '../../components/Comment';
 import {Input} from '../../components/Input';
 
+import defaultAvatar from '../../assets/avatar_placeholder.svg'
+
 
 export function Details() {
   const [product, setProduct] = useState({});
@@ -85,7 +87,7 @@ export function Details() {
             <strong>R${product.preco}</strong>
 
             <div className="user_information">
-              <img src={`https://ofertaquente.com.br/${product.imagemUsuario}`} alt="" />
+              <img src={ product.imagemUsuario ? `https://ofertaquente.com.br/${product.imagemUsuario}` : defaultAvatar} alt="" />
               <p>Postado por <span>{product.nameUsuario}</span></p>
             </div>
 

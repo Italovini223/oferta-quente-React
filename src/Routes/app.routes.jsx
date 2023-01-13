@@ -14,7 +14,7 @@ export function AppRoutes() {
       <Route path='/' element={<Home />} />
       <Route path='details' element={<Details />} />
       <Route path="/singIn" element={<SingIn />} />
-      <Route path="/register" element={<SingUp />} />
+      <Route path="/singUp" element={<SingUp />} />
       <Route path='/profile' element={<Profile />} /> 
     </Routes>
   )

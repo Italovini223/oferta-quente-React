@@ -48,7 +48,7 @@ export function SingIn(){
             title="Entrar" 
             onClick={handleSingIn}
           />
-          <a href="/register">Criar Conta</a>
+          <a href="/singUp">Criar Conta</a>
         </UserInfo>
       </Content>
     </Container>

@@ -1,11 +1,12 @@
 import { Container, Description, Information, Utils, Line, UserInfo, Actions } from "./styles";
 
-import {AiFillHeart} from 'react-icons/ai'
 import {MdInsertComment} from 'react-icons/md'
 
 import {api} from '../../Service/api';
 import {useAuth} from '../../hooks/auth'
 import { useNavigate } from "react-router-dom";
+
+import defaultAvatar from '../../assets/avatar_placeholder.svg'
 
 
 export function Product({data, IsLiked = false}){
@@ -19,7 +20,7 @@ export function Product({data, IsLiked = false}){
     navigate('/details');
   }
 
-  async function handleLike(){
+ /* async function handleLike(){
 
     if(!user){
       return navigate("/singIn");
@@ -39,7 +40,7 @@ export function Product({data, IsLiked = false}){
       idOferta: data.id,
       idUsuario: user.id
     })
-  }
+  } */
 
 
 
@@ -59,7 +60,7 @@ export function Product({data, IsLiked = false}){
 
       <Utils>
         <UserInfo>
-          <img src={`https://ofertaquente.com.br/${data.imagemUsuario}`} alt="" />
+          <img src={ data.imagemUsuario ? `https://ofertaquente.com.br/${data.imagemUsuario}` : defaultAvatar} alt="" />
           <span>{data.nameUsuario}</span>
         </UserInfo>
        <Actions>

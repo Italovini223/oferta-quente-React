@@ -19,7 +19,7 @@ export function SingUp(){
 
   async function handleSingUp(){
     if(!name || !email || !password || !phoneNumber) {
-      alert("Preencha todos os campos");
+      return alert("Preencha todos os campos");
     }
 
     await api.post('/cadastrarUser', {
@@ -81,7 +81,7 @@ export function SingUp(){
             onClick={handleSingUp} 
           />
 
-          <a href="/">Fazer Login</a>
+          <a href="/singIn">Fazer Login</a>
 
         </UserInfo>
       </Content>

@@ -52,7 +52,6 @@ export function Home() {
         pesquisa: search,
       })
       setProducts([...response.data])
-      console.log(user)
       
     }
 

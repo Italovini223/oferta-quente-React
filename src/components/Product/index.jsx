@@ -52,7 +52,7 @@ export function Product({data, IsLiked = false}){
 
       <Information>
         <span>R$ {data.preco}</span>
-        <img src={data.storeLogo} alt="" />
+        <img src={`https://ofertaquente.com.br/${data.imagemLoja}`} alt="" />
       </Information>
 
       <Line />

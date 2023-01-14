@@ -39,7 +39,7 @@ export const Header = styled.header`
     color: ${({theme}) => theme.COLORS.RED};
   }
 
-  @media(max-width: 400px){
+  @media(max-width: 1000px){
     width: 100%;
     padding: 5px;
   }
@@ -66,7 +66,7 @@ export const Content = styled.div`
     color: ${({theme}) => theme.COLORS.RED};
   }
 
-  @media(max-width: 400px){
+  @media(max-width: 1000px){
     width: 100%;
     padding: 5px;
   }
@@ -173,7 +173,7 @@ export const Comments = styled.div`
 
   grid-area: comments;
 
-  @media(max-width: 400px){
+  @media(max-width: 1000px){
     width: 100%;
     padding: 5px;
   }
@@ -205,7 +205,7 @@ export const AddComment = styled.div`
     cursor: pointer;
   }
 
-  @media(max-width: 400px){
+  @media(max-width: 1000px){
     width: 100%;
     padding: 5px;
   }

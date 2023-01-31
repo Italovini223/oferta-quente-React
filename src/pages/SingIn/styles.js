@@ -6,7 +6,7 @@ export const Container = styled.div`
   background-color: #001C32;
 `
 export const Content = styled.div`
-  width: 50%;
+  width: 80%;
   margin: 0 auto;
   padding: 40px 0;
 
@@ -14,6 +14,7 @@ export const Content = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 50px;
+
   
   @media(min-width: 768px){
     width: 500px;
@@ -29,12 +30,15 @@ export const StorageInfo = styled.div`
   align-items: center;
   gap: 20px;
 
+  text-align: center;
+
   > img {
     width: 200px;
   }
 
   > h1,h2 {
     color: white ;
+
   }
 `;
 

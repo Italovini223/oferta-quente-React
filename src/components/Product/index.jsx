@@ -50,7 +50,7 @@ export function Product({data}){
       </Description>
 
       <Information>
-        <span>R$ {data.preco}</span>
+        <span>R$ {String(data.preco).replace(".", ",")}</span>
         <img src={`https://ofertaquente.com.br/${data.imagemLoja}`} alt="" />
       </Information>
 

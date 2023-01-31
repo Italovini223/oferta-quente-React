@@ -14,20 +14,25 @@ export const Container = styled.header`
   grid-area: header;
 
   background-color: ${({theme}) => theme.COLORS.WHITE};
+  position: relative;
 
 `;
 
 
-export const UserContent = styled.div`
-  width: 100px;
+export const SidebarContent = styled.div`
+  width: 50px;
   margin-right: 10px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  @media(max-width: 375px){
-    display: none;
+  position: absolute;
+  right: 0;
+  top: 2;
+
+  > svg {
+    font-size: 22px;
   }
 
 `;

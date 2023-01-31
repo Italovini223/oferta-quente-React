@@ -21,6 +21,7 @@ export function Home() {
   const [page, setPage] = useState(2);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("listaOfertaRecentes");
+  const [isLoading, setIsLoading] = useState(false);
 
   const {user} = useAuth();
 
@@ -35,6 +36,7 @@ export function Home() {
   }
 
   async function handleProducts(){
+    setIsLoading(true);
     setPage(Number(page + 1));
 
     const response = await axios.post(`https://ofertaquente.com.br/api/${filter}?page=${page}`,{
@@ -43,6 +45,7 @@ export function Home() {
     })
 
     setProducts([...products, ...response.data]);
+    setIsLoading(false);
     
   }
 
@@ -105,8 +108,9 @@ export function Home() {
         }
         </Products>
         <Button 
-          title="Ver mais produtos"
+          title={isLoading ? "Carregando..." : "Ver mais produtos"}
           onClick={handleProducts}
+          disabled={isLoading}
         />
       </Content>
     </Container>

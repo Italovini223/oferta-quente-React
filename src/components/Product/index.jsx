@@ -1,18 +1,26 @@
 import { Container, Description, Information, Utils, Line, UserInfo, Actions } from "./styles";
 
-import {MdInsertComment} from 'react-icons/md'
+import {MdInsertComment, AiFillHeart, AiOutlineHeart} from 'react-icons/all'
 
 import {api} from '../../Service/api';
+
 import {useAuth} from '../../hooks/auth'
+import {useLike} from '../../hooks/like';
+
 import { useNavigate } from "react-router-dom";
 
 import defaultAvatar from '../../assets/avatar_placeholder.svg'
 
 
-export function Product({data, IsLiked = false}){
+export function Product({data}){
+  let isLiked = false;
 
+  const {addLike, removeLike, likes} = useLike();
   const {user} = useAuth();
+
   const navigate = useNavigate();
+
+  isLiked = likes.some((product) => product.id === data.id)
 
   function getProduct() {
     localStorage.setItem('@ofertaQuente:produto', JSON.stringify(data));
@@ -20,28 +28,18 @@ export function Product({data, IsLiked = false}){
     navigate('/details');
   }
 
- /* async function handleLike(){
+  function handleLike(data) {
 
     if(!user){
-      return navigate("/singIn");
+      navigate("/singIn")
     }
 
-    if(data.curtidaUser === true) {
-      await api.post("/excluirCurtida",{
-        idOferta: data.id,
-        idUsuario: user.id
-      })
-
-      console.log(data)
-
-      return
+    if(isLiked){
+      removeLike(data);
     }
-    await api.post("/cadastrarCurtida",{
-      idOferta: data.id,
-      idUsuario: user.id
-    })
-  } */
 
+    addLike(data);
+  }
 
 
   return (
@@ -69,6 +67,14 @@ export function Product({data, IsLiked = false}){
           onClick={getProduct}
         >
           <MdInsertComment />
+        </button>
+
+        <button
+          className="button_like"
+          onClick={() => handleLike(data)}
+          liked={isLiked}
+        > 
+          {isLiked ? <AiFillHeart /> : <AiOutlineHeart />}
         </button>
        </Actions>
       </Utils>

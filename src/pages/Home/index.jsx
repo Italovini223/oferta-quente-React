@@ -98,7 +98,6 @@ export function Home() {
             return (
               <Product 
                 data={product}
-                IsLiked={product.curtidaUser === "true"}
                 key={product.id}
               />
             )

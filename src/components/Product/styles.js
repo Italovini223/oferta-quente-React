@@ -119,6 +119,10 @@ export const Actions = styled.div`
     color: grey;
   }
 
+  .button_like {
+    color: ${({theme}) => theme.COLORS.RED};
+  }
+
 
 `;
 

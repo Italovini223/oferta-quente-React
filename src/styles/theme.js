@@ -7,6 +7,7 @@ export default {
 
     RED: "#E40303",
 
-    GREY_500: "#C0C0C0"
+    GREY_500: "#C0C0C0",
+    GREY_400: "#F3F3F3"
   }
 }

@@ -66,7 +66,7 @@ export function Details() {
   return (
     <Container>
      <Header>
-      <button
+     <button
         onClick={handleBack}
       >
         <FiArrowLeft />

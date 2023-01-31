@@ -45,7 +45,7 @@ function AuthProvider({children}){
         user: JSON.parse(user)
       });
     }
-  }, [])
+  }, [data])
 
   return(
     <AuthContext.Provider value={{

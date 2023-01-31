@@ -13,7 +13,7 @@ export function Sidebar({active}){
   const {user} = useAuth();
   const navigate = useNavigate();
 
-  function handlePage() {
+  function handleUserPage() {
     if(!user){
      
       navigate("/singIn");
@@ -21,12 +21,21 @@ export function Sidebar({active}){
       navigate("/profile");
     }
   }
+
+  function handleFavoritePage(){
+    if(!user){
+      navigate("/singIn");
+    } else {
+      navigate("/favorites");
+    }
+  }
+  
   return (
     <Container sidebar={active}>
       <FaTimes onClick={closeSidebar} />
       <Content>
-        <SidebarItem icon={AiOutlineUser} text="usuário" onClick={handlePage} />
-        <SidebarItem icon={AiFillHeart} text="Favoritos" />
+        <SidebarItem icon={AiOutlineUser} text="usuário" onClick={handleUserPage} />
+        <SidebarItem icon={AiFillHeart} text="Favoritos" onClick={handleFavoritePage} />
       </Content>
     </Container>
   )

@@ -28,7 +28,7 @@ export const SidebarContent = styled.div`
   justify-content: center;
 
   position: absolute;
-  right: 0;
+  left: 0;
   top: 2;
 
   > svg {

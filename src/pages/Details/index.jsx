@@ -84,7 +84,7 @@ export function Details() {
           
           <div className="details">
             <h2>{product.nome}</h2>
-            <strong>R${product.preco}</strong>
+            <strong>R${String(product.preco).replace(".", ",")}</strong>
 
             <div className="user_information">
               <img src={ product.imagemUsuario ? `https://ofertaquente.com.br/${product.imagemUsuario}` : defaultAvatar} alt="" />

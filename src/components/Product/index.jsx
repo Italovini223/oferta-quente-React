@@ -20,7 +20,7 @@ export function Product({data}) {
 
   const navigate = useNavigate();
 
-  isLiked = likes.some((product) => product.id === data.id);
+  isLiked = user ? likes.some((product) => product.id === data.id) : false;
 
   function getProduct() {
     localStorage.setItem('@ofertaQuente:produto', JSON.stringify(data));

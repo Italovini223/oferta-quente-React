@@ -1,8 +1,8 @@
-import { Container, Description, Information, Utils, Line, UserInfo, Actions } from "./styles";
+import { useEffect } from "react";
+
+import { Container, Description, Information, Utils, Line, PostInfo, Actions } from "./styles";
 
 import {MdInsertComment, AiFillHeart, AiOutlineHeart} from 'react-icons/all'
-
-import {api} from '../../Service/api';
 
 import {useAuth} from '../../hooks/auth'
 import {useLike} from '../../hooks/like';
@@ -20,12 +20,14 @@ export function Product({data}){
 
   const navigate = useNavigate();
 
-  isLiked = likes.some((product) => product.id === data.id)
+  isLiked = likes.some((product) => product.id === data.id);
 
   function getProduct() {
     localStorage.setItem('@ofertaQuente:produto', JSON.stringify(data));
 
     navigate('/details');
+
+    console.log(data);
   }
 
   function handleLike(data) {
@@ -39,6 +41,22 @@ export function Product({data}){
     }
 
     addLike(data);
+  }
+
+  function calculateTime(){
+    const publicationDate = new Date(data.dataCadastro);
+    const now = new Date();
+
+    const start = Math.floor(publicationDate.getTime() / (3600 * 24 * 1000));
+    const end = Math.floor(now.getTime() / (3600 * 24 * 1000));
+
+    const result = start - end;
+
+    if(result === 0){
+      return "publicado hoje"
+    } else {
+      return `publicado há ${String(result).replace("-", "")} dia(s)`
+    }
   }
 
 
@@ -57,10 +75,13 @@ export function Product({data}){
       <Line />
 
       <Utils>
-        <UserInfo>
+        <PostInfo>
           <img src={ data.imagemUsuario ? `https://ofertaquente.com.br/${data.imagemUsuario}` : defaultAvatar} alt="" />
-          <span>{data.nameUsuario}</span>
-        </UserInfo>
+          <div>
+            <span>por {data.nameUsuario}</span>
+            <span>{calculateTime()}</span>
+          </div>
+        </PostInfo>
        <Actions>
        <button
           className="button-comment"

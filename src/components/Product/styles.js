@@ -126,16 +126,25 @@ export const Actions = styled.div`
 
 `;
 
-export const UserInfo= styled.div`
+export const PostInfo = styled.div`
  
 
   display: flex;
   align-items: center;
   gap: 8px;
 
+  > span {
+    font-weight: bold;
+  }
+
   > img {
     width: 30px;
     height: 30px;
     border-radius: 50%;
+  }
+
+  > div {
+    display: flex;
+    flex-direction: column;
   }
 `;

@@ -116,13 +116,8 @@ export const Actions = styled.div`
     background-color: transparent;
     font-size: 2rem;
     cursor: pointer;
-    color: grey;
+    color: ${({theme}) => theme.COLORS.GREY_500 };
   }
-
-  .button_like {
-    color: ${({theme}) => theme.COLORS.RED};
-  }
-
 
 `;
 

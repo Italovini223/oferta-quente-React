@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import defaultAvatar from '../../assets/avatar_placeholder.svg'
 
 
-export function Product({data}){
+export function Product({data}) {
   let isLiked = false;
 
   const {addLike, removeLike, likes} = useLike();
@@ -78,25 +78,24 @@ export function Product({data}){
         <PostInfo>
           <img src={ data.imagemUsuario ? `https://ofertaquente.com.br/${data.imagemUsuario}` : defaultAvatar} alt="" />
           <div>
-            <span>por {data.nameUsuario}</span>
-            <span>{calculateTime()}</span>
+            <strong>por {data.nameUsuario}</strong>
+            <strong>{calculateTime()}</strong>
           </div>
         </PostInfo>
        <Actions>
-       <button
-          className="button-comment"
-          onClick={getProduct}
-        >
-          <MdInsertComment />
-        </button>
+          <button
+            className="button-comment"
+            onClick={getProduct}
+          >
+            <MdInsertComment />
+          </button>
 
-        <button
-          className="button_like"
-          onClick={() => handleLike(data)}
-          liked={isLiked}
-        > 
-          {isLiked ? <AiFillHeart /> : <AiOutlineHeart />}
-        </button>
+          <button
+            className="button_like"
+            onClick={() => handleLike(data)}
+          > 
+            {isLiked ? <AiFillHeart /> : <AiOutlineHeart />}
+          </button>
        </Actions>
       </Utils>
     </Container>

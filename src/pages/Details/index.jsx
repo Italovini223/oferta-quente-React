@@ -60,7 +60,6 @@ export function Details() {
 
   useEffect(() => {
     getComments()
-    console.log(product)
   }, [product])
 
   return (

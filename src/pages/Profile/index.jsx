@@ -24,7 +24,7 @@ export function Profile(){
           <span>{user.name}</span>
         </UserDetails>
         <Functionalities>
-          <Button title="Editar perfil" previous />
+          <Button title="Editar perfil" previous onClick={() => navigate('/update')} />
           <Button title="Sair" onClick={handleSingOut}/>
         </Functionalities>
       </Content>

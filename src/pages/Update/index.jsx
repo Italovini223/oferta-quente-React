@@ -4,7 +4,7 @@ import { useAuth } from '../../hooks/auth';
 import { useNavigate } from 'react-router-dom'
 
 import { Container, Avatar, Form, Header } from "./styles";
-import { FiCamera, FaUserAlt, HiOutlineMail, AiFillPhone } from 'react-icons/all'
+import { FaUserAlt, HiOutlineMail, AiFillPhone } from 'react-icons/all'
 
 import { Input } from '../../components/Input'
 
@@ -19,32 +19,27 @@ export function Update(){
   const [number, setNumber] = useState()
 
   const [avatar, setAvatar] = useState()
-  const [avatarFile, setAvatarFile] = useState(null)
+
 
   const {user, updateUser} = useAuth();
   const navigate = useNavigate();
 
 
   async function handleUpdate(user) {
+
     const updatedUser = {
       admin: user.admin,
-      email,
       id: user.id,
       name,
+      email,
       imagem: user.imagem,
+      telefone: number,
       token: user.token
-
     }
+
     await updateUser(updatedUser);
   }
 
-  function handleChangeAvatar(event) {
-    const file = event.target.files[0]
-    setAvatarFile(file)
-
-    const imagePreview = URL.createObjectURL(file)
-    setAvatar(imagePreview);
-  }
 
   useEffect(() => {
     const {name, email, telefone, imagem} = user
@@ -52,7 +47,12 @@ export function Update(){
     setName(name)
     setEmail(email)
     setNumber(telefone)
-    setAvatar(`https://ofertaquente.com.br/${imagem}`)
+    
+    if(imagem) {
+      setAvatar(`https://ofertaquente.com.br/${imagem}`)
+    } else {
+      setAvatar(defaultAvatar)
+    }
   },[])
 
   return(
@@ -69,16 +69,6 @@ export function Update(){
             src={avatar} 
             alt={`Foto de perfil do usuário ${user.name}`} 
           />
-
-          <label htmlFor="avatar">
-            <FiCamera />
-
-            <input 
-              id='avatar'
-              type='file'
-              onChange={handleChangeAvatar}
-            />
-          </label>
         </Avatar>
 
         <Input 
@@ -97,6 +87,7 @@ export function Update(){
           singIn
           type="email"
           onChange={e => setEmail(e.target.value)}
+          readOnly
         />
 
         <Input 

@@ -41,7 +41,7 @@ export const Header = styled.header`
 
   @media(max-width: 1000px){
     width: 100%;
-    padding: 5px;
+    padding: 20px;
   }
 `;
 
@@ -207,6 +207,6 @@ export const AddComment = styled.div`
 
   @media(max-width: 1000px){
     width: 100%;
-    padding: 5px;
+    padding: 20px;
   }
 `;

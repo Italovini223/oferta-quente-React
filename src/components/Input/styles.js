@@ -8,7 +8,7 @@ export const Container = styled.div`
   align-items: center;
   gap: 8px;
 
-  border: ${({SingIn}) => SingIn ? '1px solid white' : '1px solid red'  } ;
+  border: ${({SingIn, readOnly}) => readOnly ? '1px solid gray' :  SingIn ? '1px solid white' : '1px solid red'  } ;
   border-radius: 10px;
 
   padding: 0 10px;
@@ -22,7 +22,7 @@ export const Container = styled.div`
     border: none;
     background-color: transparent;
 
-    color: ${({SingIn}) => SingIn ? 'white' : 'red'};
+    color: ${({SingIn, readOnly}) => readOnly ? 'grey' : SingIn ? 'white' : 'red'};
 
     &::placeholder {
       color: ${({SingIn}) => SingIn ? 'white' : 'red'};
@@ -32,10 +32,11 @@ export const Container = styled.div`
       box-shadow: 0 0 0 0;
       outline: 0; 
     }
+
   }
 
   > svg {
-    color: ${({SingIn}) => SingIn ? 'white' : 'red'};
+    color: ${({SingIn ,readOnly}) => readOnly ? 'grey' : SingIn ? 'white' : 'red'};
     font-size: 24px;
     background-color: transparent;
   }

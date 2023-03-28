@@ -37,20 +37,23 @@ function AuthProvider({children}){
   }
 
   async function updateUser(user) {
-    const {name, email, telefone, id, imagem } = user;
+    const { name, telefone, id } = user;
+
+    const formData = new FormData()
+
+    formData.append("name", name)
+    formData.append("id", String(id))
+    formData.append("telefone", String(telefone))
+
     
     try {
   
-      await api.post('/atualizarUser', {
-        id,
-        name,
-        email,
-        telefone,
-        imagem
-      })
+      await api.post('/atualizarUser', formData)
 
       localStorage.setItem("@ofertaQuente:user", JSON.stringify(user));
       localStorage.setItem("@ofertaQuente:token", user.token)
+
+      setData({user})
 
       alert("Perfil atualizado com sucesso!")
     } catch(error){

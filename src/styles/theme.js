@@ -8,6 +8,8 @@ export default {
     RED: "#E40303",
 
     GREY_500: "#C0C0C0",
-    GREY_400: "#F3F3F3"
+    GREY_400: "#F3F3F3",
+
+    BLACK: "#0B0B0B",
   }
 }

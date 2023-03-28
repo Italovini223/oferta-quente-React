@@ -43,7 +43,7 @@ export function Details() {
       mensagem: newComment
     }) 
     .then(alert("Comentário cadastrado com sucesso!"))
-    .catch(error => alert("Nao foi possível cadastrar o comentário! "))
+    .catch(error => alert("Nao foi possível cadastrar o comentário!"))
   }
 
   function handleBack() {
@@ -60,7 +60,6 @@ export function Details() {
 
   useEffect(() => {
     getComments()
-    console.log(product)
   }, [product])
 
   return (
@@ -97,7 +96,6 @@ export function Details() {
           </div>
           
         </ProductDetail>
-        
       }
       <div className="commentsAmount">
         <FaCommentAlt />

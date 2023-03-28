@@ -6,6 +6,7 @@ import { Profile } from '../pages/Profile';
 import { SingIn } from "../pages/SingIn";
 import { SingUp } from "../pages/SingUp";
 import {Favorites} from '../pages/Favorites';
+import { Update } from '../pages/Update';
 
 
 
@@ -18,6 +19,7 @@ export function AppRoutes() {
       <Route path="/singUp" element={<SingUp />} />
       <Route path='/profile' element={<Profile />} /> 
       <Route path='/favorites' element={<Favorites />} />
+      <Route path='/update' element={<Update />} />
     </Routes>
   )
 }

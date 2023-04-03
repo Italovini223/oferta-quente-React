@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 
-import axios from 'axios';
+import { api } from '../../Service/api';
 
 import {useAuth} from '../../hooks/auth'
 
@@ -23,11 +23,6 @@ export function Home() {
   const [filter, setFilter] = useState("listaOfertaRecentes");
   const [isLoading, setIsLoading] = useState(false);
 
-  const {user} = useAuth();
-
-
-
-
 
   function handleFilter(title){
     setFilter(title);
@@ -39,7 +34,7 @@ export function Home() {
     setIsLoading(true);
     setPage(Number(page + 1));
 
-    const response = await axios.post(`https://ofertaquente.com.br/api/${filter}?page=${page}`,{
+    const response = await api.post(`/${filter}?page=${page}`,{
       pesquisa: search,
       page,
     })
@@ -51,7 +46,7 @@ export function Home() {
 
   useEffect(() => {
     async function fetchProducts() {
-      const response = await axios.post(`https://ofertaquente.com.br/api/${filter}`, {
+      const response = await api.post(`/${filter}`, {
         pesquisa: search,
       })
       setProducts([...response.data])

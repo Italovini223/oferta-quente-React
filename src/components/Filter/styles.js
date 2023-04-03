@@ -12,7 +12,7 @@ export const Container = styled.button`
   border: none;
   background: none;
 
-  color: ${({clicked}) => clicked ? "red" : "back" };
+  color: ${({ clicked, theme }) => clicked ? theme.COLORS.RED : theme.COLORS.BLACK };
 
   > span {
     background-color: transparent;

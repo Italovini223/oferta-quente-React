@@ -27,19 +27,20 @@ export function Header({onChange, value, children}){
     <Container>
       <Content>
         <Top>
-        <img src={logoImg} alt="" />
-        <Input 
-          type="text"
-          placeholder="Digite Sua Busca"
-          icon={FiSearch}
-          onChange={onChange}
-          value={value}
-        />
-      </Top>
-      <Bottom>
-        {children}
-      </Bottom>
+          <img src={logoImg} alt="" />
+          <Input 
+            type="text"
+            placeholder="Digite Sua Busca"
+            icon={FiSearch}
+            onChange={onChange}
+            value={value}
+          />
+        </Top>
+        <Bottom>
+          {children}
+       </Bottom>
       </Content>
+      
       <SidebarContent>
         <FaBars onClick={showSidebar} />
         {sidebar && <Sidebar active={setSidebar} />}

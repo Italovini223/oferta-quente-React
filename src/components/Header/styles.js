@@ -24,8 +24,9 @@ export const SidebarContent = styled.div`
   margin-right: 10px;
 
   display: flex;
-  align-items: center;
+
   justify-content: center;
+
 
   position: absolute;
   right: 0;
@@ -34,6 +35,7 @@ export const SidebarContent = styled.div`
   > svg {
     font-size: 22px;
   }
+
 
 `;
 
@@ -52,10 +54,10 @@ export const Top = styled.div`
   display: flex;
   align-items: center;
 
+
   justify-content: space-around;
   width: 50%;
   gap: 20px;
-
   margin: 5px;
 
 
@@ -69,6 +71,9 @@ export const Top = styled.div`
       width: 40px;
       height: 40px;
     }
+
+    width: 70%;
+  
   }
 
 `;
